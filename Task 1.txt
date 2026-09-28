@@ -1,0 +1,46 @@
+16 ?- house = house.
+true.
+// because they have the same name
+
+
+17 ?- house = abc.
+false.
+// because the names are different
+
+
+18 ?- edge(a,b) = edge(C,b).
+C = a.
+// they have the same name and the same number of arguments, so C = a
+
+
+19 ?- edge(C,B) = edge(a,d).
+C = a,
+B = d.
+// they have the same name and the same number of arguments, so C = a and B = d
+
+
+20 ?- edge(A,f(g,h)) = edge(a,B).
+A = a,
+B = f(g, h).
+// they have the same name and the same number of arguments, so A = a and B = f(g,h)
+
+
+21 ?- edge(A,A) = edge(b,c).
+false.
+// A must have the same value in both places, but b and c are different
+
+
+22 ?- edge(A,A) = edge(b,b).
+A = b.
+// A has the same value in both places, so A = b
+
+
+23 ?- A = B, B = f.
+A = B,
+B = f.
+// A and B are equal, then B = f, so A and B are both f
+
+
+24 ?- A = B, B = f, A = e.
+false.
+// A = B means they must have the same value, but B = f and A = e
